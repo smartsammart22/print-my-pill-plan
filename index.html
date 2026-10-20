@@ -406,6 +406,29 @@ select:disabled{opacity:.5;cursor:not-allowed;}
       </div>
     </div>
     <div class="wallet-inner">
+      <!-- Feedback QR on Wallet Page -->
+      <div style="
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        background: #e8f4f4;
+        border: 1.5px solid #2e9090;
+        border-radius: 8px;
+        padding: 10px 14px;
+        margin-bottom: 12px;
+        max-width: 520px;">
+        <img src="feedback-qr.png" 
+             alt="Feedback QR Code" 
+             style="width:80px; height:80px; flex-shrink:0;">
+        <div>
+          <div style="font-weight:700; font-size:0.82rem; color:#1a6b6b;">
+            Help us improve!
+          </div>
+          <div style="font-size:0.74rem; color:#6b6560; margin-top:3px;">
+            Scan to share your feedback on this tool.
+          </div>
+        </div>
+      </div>
       <div class="wallet-instruction">Cut along the dashed border. Fold on the center line so printing faces out. Tape edges or laminate.</div>
       <div class="wallet-card">
         <div class="wallet-left">
@@ -971,24 +994,5 @@ function resetForm(){
 renderAll();
 </script>
 
-  
-<!-- Feedback QR Code - Screen Only -->
-<div style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: white;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  padding: 10px;
-  text-align: center;
-  font-size: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  z-index: 999;
-  print-display: none;">
-  <img src="feedback-qr.png" alt="Feedback QR Code" style="width:100px; display:block; margin:0 auto 5px;">
-  <strong>Share your feedback!</strong>
-</div>
-  
 </body>
 </html>
