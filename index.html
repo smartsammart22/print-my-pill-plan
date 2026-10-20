@@ -234,6 +234,38 @@ select:disabled{opacity:.5;cursor:not-allowed;}
   .pack-pocket.short-term-active{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
   .med-list-table tr.short-term-row td{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
 }
+
+.help-toggle {
+  width: 100%;
+  padding: 8px 12px;
+  background: var(--teal-light);
+  border: 1.5px solid var(--teal-mid);
+  border-radius: 7px;
+  color: var(--teal);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font);
+  margin-bottom: 12px;
+  transition: background 0.2s;
+}
+.help-toggle:hover { background: #d0eaea; }
+.help-panel {
+  display: none;
+  background: var(--teal-light);
+  border: 1.5px solid var(--teal-mid);
+  border-radius: 7px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  font-size: 0.82rem;
+  line-height: 1.8;
+  color: var(--text);
+}
+.help-panel ol { padding-left: 18px; }
+.help-panel li { margin-bottom: 4px; }
+.help-panel.open { display: block; }
+  
 </style>
 </head>
 <body>
@@ -250,6 +282,22 @@ select:disabled{opacity:.5;cursor:not-allowed;}
 <aside class="input-panel">
   <div class="panel-title">Add a Medication</div>
 
+<button class="help-toggle" onclick="toggleHelp()">
+  How to use this tool ▾
+</button>
+<div class="help-panel" id="helpPanel">
+  <ol>
+    <li>Type a medication name in the search box and select it from the dropdown.</li>
+    <li>Select the strength from the dropdown that appears.</li>
+    <li>Use the + and - buttons to set how many tablets or capsules to take.</li>
+    <li>Select the time of day — Morning, Breakfast, Noon, Dinner, or Bedtime. You can select more than one.</li>
+    <li>Select which days of the week the medication is taken. Use "Every day" to select all at once.</li>
+    <li>Check any special instructions that apply.</li>
+    <li>Click Add to Schedule. Repeat for each medication.</li>
+    <li>When finished, click Print / Save as PDF to generate the printout.</li>
+  </ol>
+</div>
+  
   <div class="form-group">
     <label>Medication Name</label>
     <div class="med-search-wrap">
@@ -980,6 +1028,15 @@ function resetForm(){
 }
 
 renderAll();
+
+  function toggleHelp() {
+  const panel = document.getElementById('helpPanel');
+  const btn = document.querySelector('.help-toggle');
+  panel.classList.toggle('open');
+  btn.textContent = panel.classList.contains('open') 
+    ? 'How to use this tool ▴' 
+    : 'How to use this tool ▾';
+}
 </script>
 
 <div class="no-print" style="position:fixed; bottom:20px; right:20px; 
